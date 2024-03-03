@@ -20,6 +20,7 @@ import (
 	"github.com/tektoncd/triggers/pkg/interceptors"
 	"github.com/tektoncd/triggers/pkg/interceptors/bitbucket"
 	"github.com/tektoncd/triggers/pkg/interceptors/cel"
+	"github.com/tektoncd/triggers/pkg/interceptors/gitea"
 	"github.com/tektoncd/triggers/pkg/interceptors/github"
 	"github.com/tektoncd/triggers/pkg/interceptors/gitlab"
 	"github.com/tektoncd/triggers/pkg/interceptors/slack"
@@ -62,6 +63,7 @@ func NewWithCoreInterceptors(sg interceptors.SecretGetter, logger *zap.SugaredLo
 		"cel":       cel.NewInterceptor(sg),
 		"github":    github.NewInterceptor(sg),
 		"gitlab":    gitlab.NewInterceptor(sg),
+		"gitea":     gitea.NewInterceptor(sg),
 		"slack":     slack.NewInterceptor(sg),
 	}
 
