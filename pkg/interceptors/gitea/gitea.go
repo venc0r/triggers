@@ -58,6 +58,7 @@ type payloadDetails struct {
 	Repository   string
 	ChangedFiles string
 }
+
 func NewInterceptor(sg interceptors.SecretGetter) *InterceptorImpl {
 	return &InterceptorImpl{
 		SecretGetter: sg,
@@ -66,10 +67,10 @@ func NewInterceptor(sg interceptors.SecretGetter) *InterceptorImpl {
 
 // InterceptorParams provides a webhook to intercept and pre-process events
 type InterceptorParams struct {
-	SecretRef *triggersv1.SecretRef `json:"secretRef,omitempty"`
-	EventTypes      []string        `json:"eventTypes,omitempty"`
-	AddChangedFiles AddChangedFiles `json:"addChangedFiles,omitempty"`
-	BaseURL         string          `json:"baseUrl,omitempty"`
+	SecretRef       *triggersv1.SecretRef `json:"secretRef,omitempty"`
+	EventTypes      []string              `json:"eventTypes,omitempty"`
+	AddChangedFiles AddChangedFiles       `json:"addChangedFiles,omitempty"`
+	BaseURL         string                `json:"baseUrl,omitempty"`
 }
 
 type AddChangedFiles struct {
@@ -326,4 +327,3 @@ func makeClient(ctx context.Context, baseURL, token, username, caCertFile string
 	}
 	return client, nil
 }
-

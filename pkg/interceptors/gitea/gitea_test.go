@@ -833,4 +833,3 @@ func Test_makeClient(t *testing.T) {
 		})
 	}
 }
-
